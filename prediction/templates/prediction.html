@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Airbnb Listings Prices</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function predict_price() {
+           url = "http://localhost:8000/predict?guests_included=" + $("#guests_included").val() +
+                 "&review_scores_cleanliness=" + $("#review_scores_cleanliness").val() +
+                 "&number_of_reviews_ltm=" + $("#number_of_reviews_ltm").val() +
+                 "&review_scores_rating=" + $("#review_scores_rating").val() +
+                 "&bedrooms=" + $("#bedrooms").val() +
+                 "&cleaning_fee=" + $("#cleaning_fee").val() +
+                 "&accommodates=" + $("#accommodates").val() +
+                 "&review_scores_communication=" + $("#review_scores_communication").val() +
+                 "&bathrooms=" + $("#bathrooms").val() +
+                 "&maximum_nights=" + $("#maximum_nights").val() +
+                 "&availability_30=" + $("#availability_30").val() +
+                 "&security_deposit=" + $("#security_deposit").val() +
+                 "&beds=" + $("#beds").val() +
+                 "&extra_people=" + $("#extra_people").val() +
+                 "&minimum_nights=" + $("#minimum_nights").val() +
+                 "&host_is_superhost_t=" + $("#host_is_superhost_t").val() +
+                 "&host_identity_verified_t=" + $("#host_identity_verified_t").val() +
+                 "&is_location_exact_t=" + $("#is_location_exact_t").val() +
+                 "&instant_bookable_t=" + $("#instant_bookable_t").val() +
+                 "&require_guest_profile_picture_t=" + $("#require_guest_profile_picture_t").val() +
+                 "&require_guest_phone_verification_t=" + $("#require_guest_phone_verification_t").val() +
+                 "&property_type=" + $("#property_type").val() +
+                 "&room_type=" + $("#room_type").val() +
+                 "&calendar_updated=" + $("#calendar_updated").val() +
+                 "&cancellation_policy=" + $("#cancellation_policy").val() +
+                 "&host_response_rate=" + $("#host_response_rate").val() +
+                 "&zipcode=" + $("#zipcode").val();
+
+           // Make AJAX request
+           $.get(url,
+                 null,
+                 function(result) {
+                    $("#price").text(result);
+                 }
+           );
+        }
+    </script>
+</head>
+<body>
+
+<h1>Predict Airbnb Listings Prices</h1>
+Guests <br/>
+<input type="number" id="guests_included"/>
+<p></p>
+
+Cleanliness Score <br/>
+<input type="number" id="review_scores_cleanliness"/>
+<p></p>
+
+number_of_reviews_ltm <br/>
+<input type="number" id="number_of_reviews_ltm"/>
+<p></p>
+    
+review_scores_rating <br/>
+<input type="number" id="review_scores_rating"/>
+<p></p>
+
+bedrooms <br/>
+<input type="number" id="bedrooms"/>
+<p></p>    
+    
+cleaning_fee <br/>
+<input type="number" id="cleaning_fee"/>
+<p></p>    
+    
+accommodates <br/>
+<input type="number" id="accommodates"/>
+<p></p>    
+    
+review_scores_communication <br/>
+<input type="number" id="review_scores_communication"/>
+<p></p>    
+    
+bathrooms <br/>
+<input type="number" id="bathrooms"/>
+<p></p>    
+    
+maximum_nights <br/>
+<input type="number" id="maximum_nights"/>
+<p></p>    
+    
+availability_30 <br/>
+<input type="number" id="availability_30"/>
+<p></p>    
+    
+security_deposit <br/>
+<input type="number" id="security_deposit"/>
+<p></p>  
+    
+beds <br/>
+<input type="number" id="beds"/>
+<p></p>      
+    
+extra_people <br/>
+<input type="number" id="extra_people"/>
+<p></p>      
+    
+minimum_nights <br/>
+<input type="number" id="minimum_nights"/>
+<p></p>      
+    
+host_is_superhost_t <br/>
+<input type="number" id="host_is_superhost_t"/>
+<p></p>         
+    
+host_identity_verified_t <br/>
+<input type="number" id="host_identity_verified_t"/>
+<p></p>      
+    
+is_location_exact_t <br/>
+<input type="number" id="is_location_exact_t"/>
+<p></p>      
+    
+instant_bookable_t <br/>
+<input type="number" id="instant_bookable_t"/>
+<p></p>      
+    
+require_guest_profile_picture_t <br/>
+<input type="number" id="require_guest_profile_picture_t"/>
+<p></p>      
+    
+require_guest_phone_verification_t <br/>
+<input type="number" id="require_guest_phone_verification_t"/>
+<p></p>     
+    
+property_type <br/>
+<input type="text" id="property_type"/>
+<p></p>      
+    
+room_type <br/>
+<input type="text" id="room_type"/>
+<p></p>  
+
+calendar_updated <br/>
+<input type="text" id="calendar_updated"/>
+<p></p>     
+    
+cancellation_policy <br/>
+<input type="text" id="cancellation_policy"/>
+<p></p>    
+    
+host_response_rate <br/>
+<input type="number" id="host_response_rate"/>
+<p></p>     
+    
+zipcode <br/>
+<input type="text" id="zipcode"/>
+<p></p>     
+    
+    
+<button onclick="predict_price()">Predict Price</button>
+
+<h2 id="price"></h2>
+</body>
+</html>
+        
