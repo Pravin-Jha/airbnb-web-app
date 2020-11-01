@@ -1,1 +1,4 @@
-# A web app to determine the cost of listings of property on Airbnb
+# Airbnb-web-app
+
+An app to determine the cost of property listings on Airbnb
+
